@@ -66,28 +66,28 @@ Table 2 Breakdown of marks
 
 The lottery game flows as follows:
 
-Do you want to play?
-Enter numbers..
-Display 1st line of numbers entered
-Are you happy with these numbers? Y/N (If "No" go back and re-enter)
-Do you want to enter another line of numbers? Y/N (If "No" then..jump a step)
-Enter numbers..
-Display 2nd line of numbers entered
-Are you happy with these numbers? Y/N (If "No" go back and re-enter)
-Do you want to enter another line of numbers? Y/N 
-Enter numbers..
-Display 3rd line of numbers entered
-Are you happy with these numbers? Y/N (If "No" go back and re-enter)
-Close-off further input/play with "No-more-bets!" statement displayed)
-Now let's play!
-Display 6 numbers
-34 23 01 21 14 09
-Well done! / Hard cheese!
-Display the one, two or three lines of numbers with winning numbers in different colour/highlighted (red) or bracketed
-(34) 06 (09) 37 (23) 10 - You have won €125 for three winning numbers
-40 22 12 08 (23) 17
-(34) 08 07 15 21 32
-Do you want to play?
+- Do you want to play?
+- Enter numbers..
+- Display 1st line of numbers entered
+- Are you happy with these numbers? Y/N (If "No" go back and re-enter)
+- Do you want to enter another line of numbers? Y/N (If "No" then..jump a step)
+- Enter numbers..
+- Display 2nd line of numbers entered
+- Are you happy with these numbers? Y/N (If "No" go back and re-enter)
+- Do you want to enter another line of numbers? Y/N 
+- Enter numbers..
+- Display 3rd line of numbers entered
+- Are you happy with these numbers? Y/N (If "No" go back and re-enter)
+- Close-off further input/play with "No-more-bets!" statement displayed)
+- Now let's play!
+- Display 6 numbers
+- 34 23 01 21 14 09
+- Well done! / Hard cheese!
+- Display the one, two or three lines of numbers with winning numbers in different colour/highlighted (red) or bracketed
+- (34) 06 (09) 37 (23) 10 - You have won €125 for three winning numbers
+- 40 22 12 08 (23) 17
+- (34) 08 07 15 21 32
+- Do you want to play?
 
 ## Main Classes
 
