@@ -103,6 +103,45 @@ ERD
 - History
 - - has many Games
 
+Game:
+
+Game
+  -Deck secret
+  -Line[3] lines
+  -boolean locked
+  ----------------------
+  +add(Line l):boolean
+  +noMoreBets():void
+    This will lock up the game to not accept more lines, even if slots available
+
+Line
+  -int[6] nums
+  -int matches
+  -int matchesAmount
+  ----------------------
+  +add(int i): boolean
+    check if i is in range
+    check if i is not included on the line twice
+  +isFull(): boolean
+    used on do{...}while(!line.isFull())
+  +compare(Line other)
+
+Deck extends Line
+  constructor(int positions, int min, int max)
+    generate random numbers until isFull()
+
+  -Game[] list
+  ----------------------
+  +store(Game g):void
+  -expand():void
+
+GamePrinter
+  constructor(Game g)
+  
+LinePrinter
+  constructor(Line l)
+
+History
 
 Memory that stores an array of games, it exposes a public function to store the game. This function may expand the games array into 10 more positions.
 
