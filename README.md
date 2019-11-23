@@ -84,10 +84,15 @@ The lottery game flows as follows:
 - 34 23 01 21 14 09
 - Well done! / Hard cheese!
 - Display the one, two or three lines of numbers with winning numbers in different colour/highlighted (red) or bracketed
-- (34) 06 (09) 37 (23) 10 - You have won €125 for three winning numbers
+- (34) 06 (09) 37 (23) 10
 - 40 22 12 08 (23) 17
 - (34) 08 07 15 21 32
-- Do you want to play?
+- You guessed 3 numbers on line 1, 1 number on line 2 and 1 number on line 3.
+- If this was a real arcade or lottery game you would have had to pay to play and you would have won €125 for entering three winning numbers. 
+- Do you want to play? Y/N
+- You played the lottery 1 time (alternatively N times) with 3 lines entered 
+- Your average winning per game was €125
+- The size of the lottery began as €600,000 and it is now €599,875 (€600,000 - winnings)
 
 ## Main Classes
 
@@ -104,7 +109,6 @@ ERD
 - - has many Games
 
 Game:
-
 Game
   -Deck secret
   -Line[3] lines
@@ -143,6 +147,17 @@ LinePrinter
 
 History
 
-Memory that stores an array of games, it exposes a public function to store the game. This function may expand the games array into 10 more positions.
+Memory that stores an array of games, it exposes a public function to store the game. 
+This function may expand the games array into 10 more positions.
+
+Outline Project Plan (as of 23/11/2019)
+
+- Task Allocation
+- Donald Hickey - Game
+- Shane Gibney - Line
+- Pablo Targa - Deck & History
+
+Review outline plan on Monday 25/11/2019
+
 
 
