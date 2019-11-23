@@ -8,6 +8,8 @@ private int min, max;
 public Line(int size, int min, int max){
         slots = new int[size];
         index = 0;
+        this.min = min;
+        this.max = max;
 }
 
 // methods to check range/uniqueness
@@ -37,5 +39,15 @@ private boolean isIncluded(int num){
                 }
         }
         return false;
+}
+
+public void print(){
+  System.out.print("[");
+  for(int i = 0; i < index; i++){
+    System.out.print(slots[i]+" ");
+
+  }
+  System.out.println("]");
+
 }
 }
