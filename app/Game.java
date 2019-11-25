@@ -12,15 +12,7 @@ public class Game
       locked = false;
       index = 0;
     }
-    public void print(){
-      System.out.println("=================================");
-      System.out.printf("Game has %d lines\n", index+1);
-      for(int i = 0; i < index; i++){
-        lines[i].print();
-      }
-      System.out.println("=================================");
 
-    }
     public boolean addLine(Line l){
       if (locked){
         return false;
@@ -38,4 +30,19 @@ public class Game
 
         //...
     }
+
+    public int getAmountOfLinesPlayed(){
+      return index;
+    }
+
+    // TODO: pending method
+    public int getAmountOfLinesWon(){
+      return 0;
+    }
+
+    // TODO: pending method
+    public double getTotalWinnings(){
+      return 0.0;
+    }
+
 }

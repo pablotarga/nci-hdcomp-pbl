@@ -23,19 +23,21 @@ public static void main(String[] args){
         Line l = new Line(6, 1, 40);
         do {
                 System.out.println("Choose a number from 1 - 40.");
-                // l.add(r.nextInt(39)+1);
-                l.add(input.nextInt());
+                l.add(r.nextInt(39)+1);
+                // l.add(input.nextInt());
                 l.print();
         } while(!l.isFull());
 
         Game g = new Game();
 
         g.addLine(l);
-        g.print();
+        Printer.printGame(g);
+
         g.addLine(l);
-        g.print();
+        Printer.printGame(g);
+
         g.addLine(l);
-        g.print();
+        Printer.printGame(g);
         // l.add(3);
 }
 }
