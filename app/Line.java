@@ -23,6 +23,10 @@ public boolean isFull(){
         return index >= slots.length;
 }
 
+public int[] getSlots(){ return slots; }
+public int getMin(){ return min; }
+public int getMax(){ return max; }
+
 private boolean isValid(int num){
         if(num < min || num > max) {
                 return false;
@@ -41,13 +45,4 @@ private boolean isIncluded(int num){
         return false;
 }
 
-public void print(){
-  System.out.print("[");
-  for(int i = 0; i < index; i++){
-    System.out.print(slots[i]+" ");
-
-  }
-  System.out.println("]");
-
-}
 }
