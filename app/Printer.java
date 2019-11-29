@@ -1,11 +1,38 @@
 public abstract class Printer{
-
+  public static final String ANSI_RESET = "\u001B[0m";
+  public static final String ANSI_BLACK = "\u001B[30m";
+  public static final String ANSI_RED = "\u001B[31m";
+  public static final String ANSI_GREEN = "\u001B[32m";
+  public static final String ANSI_YELLOW = "\u001B[33m";
+  public static final String ANSI_BLUE = "\u001B[34m";
+  public static final String ANSI_PURPLE = "\u001B[35m";
+  public static final String ANSI_CYAN = "\u001B[36m";
+  public static final String ANSI_WHITE = "\u001B[37m";
 
   public static void printHistory(History h){
     Game[] games = h.getGames();
 
     printGames(games);
     printHistorySummary(games);
+  }
+
+  public static void printLine(Line l){
+    String s = "";
+    int[] slots = l.getSlots();
+    int min = l.getMin(), max = l.getMax();
+
+    for(int i = 0; i < slots.length; i++){
+      String color;
+      int n = slots[i];
+      if( n == min || n == max){
+        color = ANSI_CYAN;
+      } else {
+        color = ANSI_WHITE;
+      }
+      s += c(color, lpad((i == 0 ? 2 : 4), Integer.toString(n)));
+    }
+
+    System.out.println("["+s+"]");
   }
 
   public static void printGames(Game[] games){
@@ -60,10 +87,17 @@ public abstract class Printer{
     System.out.printf("Winnings avg across all games is %.2f", avg);
   }
 
+  // HELPER METHODS
   public static String p(int c, String singular, String plural){
     String chosen = (c == 1 ? singular : plural);
     return chosen.contains("%d") ? String.format(chosen, c) : chosen;
   }
 
+  public static String c(String color, String string){
+    return String.format("%s%s%s", color, string, ANSI_RESET);
+  }
 
+  public static String lpad(int pad, String s){
+    return String.format("%"+pad+"s", s);
+  }
 }
