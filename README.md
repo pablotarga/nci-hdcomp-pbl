@@ -108,12 +108,11 @@ ERD
 - History
 - - has many Games
 
-Game:
 Game
   -Deck secret
   -Line[3] lines
   -boolean locked
-  ----------------------
+  ___________________
   +add(Line l):boolean
   +noMoreBets():void
     This will lock up the game to not accept more lines, even if slots available
@@ -122,22 +121,22 @@ Line
   -int[6] nums
   -int matches
   -int matchesAmount
-  ----------------------
+  __________________
   +add(int i): boolean
     check if i is in range
     check if i is not included on the line twice
   +isFull(): boolean
     used on do{...}while(!line.isFull())
-  +compare(Line other)
+  +compare (Line other)
 
 Deck extends Line
   constructor(int positions, int min, int max)
     generate random numbers until isFull()
 
-  -Game[] list
-  ----------------------
-  +store(Game g):void
-  -expand():void
+  - Game[] list
+  ____________________
+  + store(Game g):void
+  - expand():void
 
 GamePrinter
   constructor(Game g)
@@ -153,9 +152,9 @@ This function may expand the games array into 10 more positions.
 Outline Project Plan (as of 23/11/2019)
 
 - Task Allocation
-- Donald Hickey - Game
-- Shane Gibney - Line
-- Pablo Targa - Deck & History
+- Donald Hickey - Game class
+- Shane Gibney - Line class
+- Pablo Targa - Deck & History classes
 
 Review outline plan on Monday 25/11/2019
 
