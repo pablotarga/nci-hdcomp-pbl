@@ -11,9 +11,6 @@
 <a href="https://github.com/pablotarga/nci-hdcomp-pbl"><img width="729" alt="Lottery balls" src="https://user-images.githubusercontent.com/17167992/69916368-322e7280-1452-11ea-8db9-74a12658b0e1.jpg"></a>
 </p>
 
-![lotteryBalls](https://user-images.githubusercontent.com/17167992/69916368-322e7280-1452-11ea-8db9-74a12658b0e1.jpg)
-</p>
-
 Requirement:
 Develop an application that would allow the user to play a lottery game. The game should generate 6 random secret lottery numbers between 1 and 40. Once the numbers have been chosen, the user should be permitted to enter up to three lines of 6 numbers each. These numbers should then be compared to the secret lottery numbers one line at a time.
 
