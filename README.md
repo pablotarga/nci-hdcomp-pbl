@@ -6,8 +6,16 @@
 - Shane Gibney
 - Donald Hickey
 
+
+<p align="center">
+<a href="https://github.com/pablotarga/nci-hdcomp-pbl"><img width="729" alt="Lottery balls" src="https://user-images.githubusercontent.com/17167992/69916368-322e7280-1452-11ea-8db9-74a12658b0e1.jpg"></a>
+</p>
+
+![lotteryBalls](https://user-images.githubusercontent.com/17167992/69916368-322e7280-1452-11ea-8db9-74a12658b0e1.jpg)
+</p>
+
 Requirement:
-Develop an application that would allow the user to play a lottery game. The game should generate 6 random secret lottery numbers between 1 and 40. Once the numbers have been chosen, the user should be permitted to enter up to three lines of 6 numbers each. These numbers should then be compared to the secret lottery numbers one line at a time. 
+Develop an application that would allow the user to play a lottery game. The game should generate 6 random secret lottery numbers between 1 and 40. Once the numbers have been chosen, the user should be permitted to enter up to three lines of 6 numbers each. These numbers should then be compared to the secret lottery numbers one line at a time.
 
 A lottery line is successful according to the criteria shown in Table 1:
 Table 1 Lottery rules
@@ -19,16 +27,16 @@ Numbers matched on a line Winnings
 
 The application should allow the user to play the lottery game as many times as they want.
 
-At the end of a game, the game should display the amount of numbers guessed correctly on each line played. Once a game has finished, the application asks the player if he/she would like to play another game. At the end of all the games, display a history of all games played. The history shows, for each game, the number of lines played, and the number of lines won, and the total winnings. 
+At the end of a game, the game should display the amount of numbers guessed correctly on each line played. Once a game has finished, the application asks the player if he/she would like to play another game. At the end of all the games, display a history of all games played. The history shows, for each game, the number of lines played, and the number of lines won, and the total winnings.
 
 Also, at the end of all the games, display a summary with the total number of games played and the average of winnings across all the games. All the history elements of the game should be coded using arrays.
-For example, the history at the end of a game could be: 
-  - if the secret lottery numbers are 2, 4, 6, 7, 9, 12 
+For example, the history at the end of a game could be:
+  - if the secret lottery numbers are 2, 4, 6, 7, 9, 12
   - and the user entered:
-  - 1, 2, 3, 4, 5, 6 on their first line, 
-  - and 2, 4, 6, 8, 9, 13 on their second line 
-  - and 10, 20, 21, 22, 23, 24 on their third line, 
-  - the program should output to the user: 
+  - 1, 2, 3, 4, 5, 6 on their first line,
+  - and 2, 4, 6, 8, 9, 13 on their second line
+  - and 10, 20, 21, 22, 23, 24 on their third line,
+  - the program should output to the user:
   - You guessed 3 numbers on line 1, 4 numbers on line 2 and 0 numbers on line 3.
 
 Application Development:
@@ -38,15 +46,15 @@ Project Submission:
 - The project will be submitted to Moodle on week 12. Please check Moodle for deadline.
 - You need to submit only once per project team.
 
-The project submission should include a project report outlining very clearly who has coded which part of the code. 
+The project submission should include a project report outlining very clearly who has coded which part of the code.
 
-The report should include a description of the: 
-- input, 
-- main processing and 
-- output (IPO), and 
-- the class diagram for your application. 
+The report should include a description of the:
+- input,
+- main processing and
+- output (IPO), and
+- the class diagram for your application.
 
-Any decisions you take in designing and implementing your project should be specified in the report. 
+Any decisions you take in designing and implementing your project should be specified in the report.
 
 The report should also include a section on manual testing, (describing testing scenarious and corresponding input data), that you performed to show that the game is working according to the specification (here you could include screenshots of the tests performed).
 
@@ -74,7 +82,7 @@ The lottery game flows as follows:
 - Enter numbers..
 - Display 2nd line of numbers entered
 - Are you happy with these numbers? Y/N (If "No" go back and re-enter)
-- Do you want to enter another line of numbers? Y/N 
+- Do you want to enter another line of numbers? Y/N
 - Enter numbers..
 - Display 3rd line of numbers entered
 - Are you happy with these numbers? Y/N (If "No" go back and re-enter)
@@ -88,9 +96,9 @@ The lottery game flows as follows:
 - 40 22 12 08 (23) 17
 - (34) 08 07 15 21 32
 - You guessed 3 numbers on line 1, 1 number on line 2 and 1 number on line 3.
-- If this was a real arcade or lottery game you would have had to pay to play and you would have won €125 for entering three winning numbers. 
+- If this was a real arcade or lottery game you would have had to pay to play and you would have won €125 for entering three winning numbers.
 - Do you want to play? Y/N
-- You played the lottery 1 time (alternatively N times) with 3 lines entered 
+- You played the lottery 1 time (alternatively N times) with 3 lines entered
 - Your average winning per game was €125
 - The size of the lottery began as €600,000 and it is now €599,875 (€600,000 - winnings)
 
@@ -102,7 +110,7 @@ The lottery game flows as follows:
 - History
 
 ERD
-- Game 
+- Game
 - - has one Deck
 - - has three Lines
 - History
@@ -141,13 +149,13 @@ Deck extends Line
 
 GamePrinter
   constructor(Game g)
-  
+
 LinePrinter
   constructor(Line l)
 
 History
 
-Memory that stores an array of games, it exposes a public function to store the game. 
+Memory that stores an array of games, it exposes a public function to store the game.
 This function may expand the games array into 10 more positions.
 
 Outline Project Plan (as of 23/11/2019)
@@ -158,6 +166,3 @@ Outline Project Plan (as of 23/11/2019)
 - Pablo Targa - Deck & History
 
 Review outline plan on Monday 25/11/2019
-
-
-
