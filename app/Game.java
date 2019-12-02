@@ -28,6 +28,10 @@ public class Game
     public void noMoreBets(){
         locked = true;
 
+        // generate the Deck
+        // check against played lines
+        // calculate AmountOfLinesWon
+        // calculate TotalWinnings
         //...
     }
 
