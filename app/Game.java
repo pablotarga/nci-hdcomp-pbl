@@ -45,4 +45,8 @@ public class Game
       return 0.0;
     }
 
+    public boolean acceptsNewLine(){
+      return !locked;
+    }
+
 }
