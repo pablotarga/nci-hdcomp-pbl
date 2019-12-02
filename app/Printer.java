@@ -92,6 +92,22 @@ public static String c(String color, String string){
         return String.format("%s%s%s", color, string, ANSI_RESET);
 }
 
+public static String error(String string){
+        return c(ANSI_RED, string);
+}
+
+public static String info(String string){
+        return c(ANSI_CYAN, string);
+}
+
+public static String success(String string){
+        return c(ANSI_GREEN, string);
+}
+
+public static String warning(String string){
+        return c(ANSI_YELLOW, string);
+}
+
 public static String lpad(int pad, String s){
         return String.format("%"+pad+"s", s);
 }
