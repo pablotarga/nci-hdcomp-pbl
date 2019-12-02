@@ -1,13 +1,4 @@
 public abstract class Printer {
-public static final String ANSI_RESET = "\u001B[0m";
-public static final String ANSI_BLACK = "\u001B[30m";
-public static final String ANSI_RED = "\u001B[31m";
-public static final String ANSI_GREEN = "\u001B[32m";
-public static final String ANSI_YELLOW = "\u001B[33m";
-public static final String ANSI_BLUE = "\u001B[34m";
-public static final String ANSI_PURPLE = "\u001B[35m";
-public static final String ANSI_CYAN = "\u001B[36m";
-public static final String ANSI_WHITE = "\u001B[37m";
 
 public static void printHistory(History h){
         Game[] games = h.getGames();
@@ -21,10 +12,9 @@ public static void printLine(Line l){
         int[] slots = l.getSlots();
 
         for(int i = 0; i < slots.length; i++) {
-                String color = (l.isHit(i) ? ANSI_GREEN : ANSI_WHITE);
                 int n = slots[i];
-
-                s += c(color, lpad((i == 0 ? 2 : 4), Integer.toString(n)));
+                String out = lpad((i == 0 ? 2 : 4), Integer.toString(n));
+                s += (l.isHit(i) ? Colorize.success(out) : out);
         }
 
         System.out.println("["+s+"]");
@@ -88,27 +78,6 @@ public static String p(int c, String singular, String plural){
         return chosen.contains("%d") ? String.format(chosen, c) : chosen;
 }
 
-public static String c(String color, String string){
-        return String.format("%s%s%s", color, string, ANSI_RESET);
-}
-
-public static String error(String string){
-        return c(ANSI_RED, string);
-}
-
-public static String info(String string){
-        return c(ANSI_CYAN, string);
-}
-
-public static String success(String string){
-        return c(ANSI_GREEN, string);
-}
-
-public static String warning(String string){
-        return c(ANSI_YELLOW, string);
-}
-
-
 public static String lpad(int pad, String s){
         return String.format("%"+pad+"s", s);
 }
@@ -119,16 +88,16 @@ public static void greetings(){
 }
 
 public static void rules(){
-        System.out.println("======== Lotery Rules =========");
-        System.out.println("Play as many times you like!");
-        System.out.println("You can play up to 3 lines per game.");
-        System.out.println("You can pick any digit from 1 to 40.");
-        System.out.println("We can't accept the same digit twice.");
-        System.out.println("\n\n=========== Prizes ============");
-        System.out.println("|3 numbers |             €125 |");
-        System.out.println("|4 numbers |             €300 |");
-        System.out.println("|5 numbers |           €1,500 |");
-        System.out.println("|6 numbers |  Won the Lottery |");
-        System.out.println("===============================");
+        System.out.println(Colorize.info("======== Lotery Rules ========="));
+        System.out.println(Colorize.info("Play as many times you like!"));
+        System.out.println(Colorize.info("You can play up to 3 lines per game."));
+        System.out.println(Colorize.info("You can pick any digit from 1 to 40."));
+        System.out.println(Colorize.info("We can't accept the same digit twice."));
+        System.out.println(Colorize.info("\n\n=========== Prizes ============"));
+        System.out.println(Colorize.info("|3 numbers |             €125 |"));
+        System.out.println(Colorize.info("|4 numbers |             €300 |"));
+        System.out.println(Colorize.info("|5 numbers |           €1,500 |"));
+        System.out.println(Colorize.info("|6 numbers |  Won the Lottery |"));
+        System.out.println(Colorize.info("==============================="));
 }
 }

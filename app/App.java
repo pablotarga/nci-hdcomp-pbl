@@ -6,7 +6,6 @@
  * @version (a version number or a date)
  */
 import java.util.Scanner;
-import java.util.Random;
 
 public class App
 {
@@ -26,7 +25,7 @@ public static void main(String[] args){
 }
 
 public static boolean yn(String question, Scanner s){
-        System.out.print(Printer.warning(question+" [y/n]"));
+        System.out.print(Colorize.warning(question+" [y/n] "));
         char ans = s.next().trim().toLowerCase().charAt(0);
         return ans == 'y';
 }
@@ -35,9 +34,9 @@ public static void askDigit(Line l, Scanner s){
         System.out.print("Please inform a digit from 1 to 40: ");
         int n = s.nextInt();
         if(l.add(n)){
-                System.out.println(Printer.success(n + " was added to the line!"));
+                System.out.println(Colorize.success(n + " was added to the line!"));
         } else {
-                System.out.println(Printer.error("Informed digit is not valid please check if between 1 and 40 and not included on the line"));
+                System.out.println(Colorize.error("Informed digit is not valid please check if between 1 and 40 and not included on the line"));
                 System.out.print("Line: ");
                 Printer.printLine(l);
         }
