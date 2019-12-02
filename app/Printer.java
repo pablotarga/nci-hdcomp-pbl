@@ -108,7 +108,27 @@ public static String warning(String string){
         return c(ANSI_YELLOW, string);
 }
 
+
 public static String lpad(int pad, String s){
         return String.format("%"+pad+"s", s);
+}
+
+public static void greetings(){
+        System.out.println("===============================");
+        System.out.println("Welcome to HDSDEV-SEP Lotery!\n");
+}
+
+public static void rules(){
+        System.out.println("======== Lotery Rules =========");
+        System.out.println("Play as many times you like!");
+        System.out.println("You can play up to 3 lines per game.");
+        System.out.println("You can pick any digit from 1 to 40.");
+        System.out.println("We can't accept the same digit twice.");
+        System.out.println("\n\n=========== Prizes ============");
+        System.out.println("|3 numbers |             €125 |");
+        System.out.println("|4 numbers |             €300 |");
+        System.out.println("|5 numbers |           €1,500 |");
+        System.out.println("|6 numbers |  Won the Lottery |");
+        System.out.println("===============================");
 }
 }
