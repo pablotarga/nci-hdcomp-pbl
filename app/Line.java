@@ -18,10 +18,12 @@ public Line(int size, int min, int max){
 }
 
 // methods to check range/uniqueness
-public void add(int num){
+public boolean add(int num){
         if (!isFull() && isValid(num)) {
                 slots[index++] = num;
+                return true;
         }
+        return false;
 }
 
 public boolean isFull(){
