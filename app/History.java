@@ -19,7 +19,7 @@ public class History {
     list[pos++] = g;
 
     if(pos == list.length) {
-      extend_list();
+      extendList();
     }
   }
 
@@ -36,11 +36,11 @@ public class History {
     return games;
   }
 
-  private void extend_list(){
-    extend_list(10);
+  private void extendList(){
+    extendList(10);
   }
 
-  private void extend_list(int size){
+  private void extendList(int size){
     Game[] old = list;
     list = new Game[old.length + size];
     copy(old);
