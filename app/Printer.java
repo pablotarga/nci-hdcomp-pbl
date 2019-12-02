@@ -19,17 +19,11 @@ public static void printHistory(History h){
 public static void printLine(Line l){
         String s = "";
         int[] slots = l.getSlots();
-        // int min = l.getMin(), max = l.getMax();
-
 
         for(int i = 0; i < slots.length; i++) {
                 String color = (l.isHit(i) ? ANSI_GREEN : ANSI_WHITE);
                 int n = slots[i];
-                // if( n == min || n == max) {
-                //         color = ANSI_CYAN;
-                // } else {
-                //         color = ANSI_WHITE;
-                // }
+
                 s += c(color, lpad((i == 0 ? 2 : 4), Integer.toString(n)));
         }
 
