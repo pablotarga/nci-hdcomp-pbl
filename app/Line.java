@@ -69,7 +69,7 @@ public boolean isHit(int index){
         return ((hitPositions & (int)Math.pow(2,index)) > 0);
 }
 
-public int getHits(){
+public int getAmountOfHits(){
         return hitsAmount;
 }
 

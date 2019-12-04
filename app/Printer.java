@@ -3,6 +3,9 @@ public abstract class Printer {
 public static void printHistory(History h){
         Game[] games = h.getGames();
 
+        if(any games won the lottery){
+          // do a barrel roll
+        }
         printGames(games);
         printHistorySummary(games);
 }

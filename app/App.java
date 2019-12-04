@@ -17,7 +17,7 @@ public static void main(String[] args){
         // Printer.printLine(d);
         // d.check(b);
         // Printer.printLine(d);
-        // System.out.println(d.getHits());
+        // System.out.println(d.getAmountOfHits());
         History history = play();
         Printer.printHistory(history);
 

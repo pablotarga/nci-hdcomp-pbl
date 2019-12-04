@@ -2,15 +2,19 @@
 import java.util.Random;
 public class Game
 {
-    private Line secret;
+    private Deck secret;
     private Line[] lines;
     private boolean locked;
+    private boolean wonTheLottery;
     private int index;
+    private int amountOfLinesWon;
+    private double totalWinnings;
 
     public Game(){
       lines = new Line[3];
       locked = false;
       index = 0;
+      wonTheLottery = false;
     }
 
     public boolean addLine(Line l){
@@ -27,30 +31,62 @@ public class Game
 
     public void noMoreBets(){
         locked = true;
+        calculateResults();
+    }
 
-        // generate the Deck
-        // check against played lines
-        // calculate AmountOfLinesWon
-        // calculate TotalWinnings
-        //...
+    private void calculateResults(){
+      secret = new Deck(6,1,40);
+      amountOfLinesWon = totalWinnings = 0;
+
+      for(int i = 0; i < index; i++){
+        Line currLine = lines[i];
+        currLine.check(secret);
+
+        int howManyNumberWon = currLine.getAmountOfHits();
+
+        switch(howManyNumberWon){
+          case 3:
+            amountOfLinesWon++;
+            totalWinnings += 125;
+            break;
+          case 4:
+            amountOfLinesWon++;
+            totalWinnings += 300;
+            break;
+          case 5:
+            amountOfLinesWon++;
+            totalWinnings += 1500;
+            break;
+          case 6:
+            amountOfLinesWon++;
+            totalWinnings += 0;
+            wonTheLottery = true;
+            break;
+          default:
+        }
+      }
     }
 
     public int getAmountOfLinesPlayed(){
+
       return index;
+
     }
 
-    // TODO: pending method
     public int getAmountOfLinesWon(){
-      return 0;
+      return amountOfLinesWon;
     }
 
-    // TODO: pending method
     public double getTotalWinnings(){
-      return 0.0;
+      return totalWinnings;
     }
 
     public boolean acceptsNewLine(){
       return !locked;
+    }
+
+    public boolean getWonTheLottery(){
+      return wonTheLottery;
     }
 
 }
