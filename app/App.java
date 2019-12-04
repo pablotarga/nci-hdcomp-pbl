@@ -48,10 +48,12 @@ public static History play(){
         History history = new History();
         Printer.greetings();
         Printer.rules();
+        boolean lotteryWon = false;
+
         do{
                 Game game = new Game();
                 while(game.acceptsNewLine()){
-                        if(!yn("Want to play a line?", s)){
+                        if(!yn("Do you want to play a line?", s)){
                                 game.noMoreBets();
                                 break;
                         }
@@ -62,13 +64,13 @@ public static History play(){
                         } while(!l.isFull());
 
                         Printer.printLine(l);
-                        if(yn("Do you confirm the above line?", s)){
+                        if(yn("Is the line entered correct?", s)){
                                 game.addLine(l);
                         }
                 }
-
+                lotteryWon = game.getWonTheLottery();
                 history.store(game);
-        } while(yn("Want to play another game?", s));
+        } while(!lotteryWon && yn("Want to play another game?", s));
 
         return history;
 }
