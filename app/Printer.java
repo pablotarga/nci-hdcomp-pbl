@@ -1,11 +1,14 @@
+// this is an abstract class and so can never be instantiated to an instance,
+// in other words an object can never be created
+// but we can and do use the members in the class because they are static
 public abstract class Printer {
 
 public static void printHistory(History h){
         Game[] games = h.getGames();
 
-        if(any games won the lottery){
-          // do a barrel roll
-        }
+        // if(any games won the lottery){
+        // do a barrel roll
+        // }
         printGames(games);
         printHistorySummary(games);
 }
@@ -87,7 +90,7 @@ public static String lpad(int pad, String s){
 
 public static void greetings(){
         System.out.println("===============================");
-        System.out.println("Welcome to HDSDEV-SEP Lotery!\n");
+        System.out.println("Welcome to HDSDEV-SEP Lottery!\n");
 }
 
 public static void rules(){

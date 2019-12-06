@@ -1,2 +1,5 @@
-javac App.java 
+rm -rf *class
+rm -rf compiled/*class
+javac App.java -d compiled 
+cd compiled
 java App

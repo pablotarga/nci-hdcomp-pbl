@@ -6,7 +6,7 @@ public class Line {
 private int[] slots;
 private int index;
 private int min, max;
-private int hitPositions;
+private int hitPositions;//int is a primitive numbers, Integer is a reference type, contains a reference to the object instancewhich is a memnory location
 private int hitsAmount;
 
 //constructor
@@ -66,6 +66,7 @@ public void check(Line other){
 }
 
 public boolean isHit(int index){
+        // bitwise operator &
         return ((hitPositions & (int)Math.pow(2,index)) > 0);
 }
 
