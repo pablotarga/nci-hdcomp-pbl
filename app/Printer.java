@@ -6,24 +6,31 @@ public abstract class Printer {
 public static void printHistory(History h){
         Game[] games = h.getGames();
 
-        // if(any games won the lottery){
-        // do a barrel roll
-        // }
+        int len = games.length;
+        Game lastGame = games[len-1];
+
+        if(lastGame.getWonTheLottery()){
+                printWonTheLottery(lastGame);
+        }
+
         printGames(games);
         printHistorySummary(games);
 }
-
 public static void printLine(Line l){
+        System.out.println(formatLine(l, true));
+}
+
+public static String formatLine(Line l, boolean colorize){
         String s = "";
         int[] slots = l.getSlots();
 
         for(int i = 0; i < slots.length; i++) {
                 int n = slots[i];
                 String out = lpad((i == 0 ? 2 : 4), Integer.toString(n));
-                s += (l.isHit(i) ? Colorize.success(out) : out);
+                s += ((colorize && l.isHit(i)) ? Colorize.success(out) : out);
         }
 
-        System.out.println("["+s+"]");
+        return "["+s+"]";
 }
 
 public static void printGames(Game[] games){
@@ -105,5 +112,21 @@ public static void rules(){
         System.out.println(Colorize.info("|5 numbers |           €1,500 |"));
         System.out.println(Colorize.info("|6 numbers |  Won the Lottery |"));
         System.out.println(Colorize.info("==============================="));
+}
+
+public static void printWonTheLottery(Game game){
+        Line l = game.getLotteryWinnerLine();
+        if(l == null){
+                return;
+        }
+
+        System.out.println("==========================================");
+        System.out.println("============ " + Colorize.rainbow("CONGRATULATIONS") + " =============");
+        System.out.println("====" + Colorize.rainbow("YOU ARE THE BIG WINNER OF THE WEEK") + "====");
+        System.out.println("==========================================");
+        System.out.println("======== "+Colorize.rainbow("YOUR WINNING NUMBERS ARE")+" ========");
+        System.out.println("==========================================");
+        System.out.println("======== "+Colorize.gold(formatLine(l, false))+" ========");
+        System.out.println("==========================================");
 }
 }
