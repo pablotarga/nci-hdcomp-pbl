@@ -36,7 +36,8 @@ public void noMoreBets(){
 
 private void calculateResults(){
         secret = new Deck(6,1,40);
-        // amountOfLinesWon = totalWinnings = 0;
+        amountOfLinesWon = 0;
+        totalWinnings = 0.0;
 
         for(int i = 0; i < index; i++) {
                 Line currLine = lines[i];
