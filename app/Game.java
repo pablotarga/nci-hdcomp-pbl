@@ -90,4 +90,13 @@ public boolean getWonTheLottery(){
         return wonTheLottery;
 }
 
+public Line getLotteryWinnerLine(){
+        for(int i = 0; i < index; i++){
+                Line curr = lines[i];
+                if(curr.getAmountOfHits() == 6){
+                        return curr;
+                }
+        }
+        return null;
+}
 }
