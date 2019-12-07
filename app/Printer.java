@@ -16,21 +16,9 @@ public static void printHistory(History h){
         printGames(games);
         printHistorySummary(games);
 }
+
 public static void printLine(Line l){
         System.out.println(formatLine(l, true));
-}
-
-public static String formatLine(Line l, boolean colorize){
-        String s = "";
-        int[] slots = l.getSlots();
-
-        for(int i = 0; i < slots.length; i++) {
-                int n = slots[i];
-                String out = lpad((i == 0 ? 2 : 4), Integer.toString(n));
-                s += ((colorize && l.isHit(i)) ? Colorize.success(out) : out);
-        }
-
-        return "["+s+"]";
 }
 
 public static void printGames(Game[] games){
@@ -85,16 +73,6 @@ public static void printHistorySummary(Game[] games){
         System.out.printf("Winnings avg across all games is %.2f", avg);
 }
 
-// HELPER METHODS
-public static String p(int c, String singular, String plural){
-        String chosen = (c == 1 ? singular : plural);
-        return chosen.contains("%d") ? String.format(chosen, c) : chosen;
-}
-
-public static String lpad(int pad, String s){
-        return String.format("%"+pad+"s", s);
-}
-
 public static void greetings(){
         System.out.println("===============================");
         System.out.println("Welcome to HDSDEV-SEP Lottery!\n");
@@ -128,5 +106,28 @@ public static void printWonTheLottery(Game game){
         System.out.println("==========================================");
         System.out.println("======== "+Colorize.gold(formatLine(l, false))+" ========");
         System.out.println("==========================================");
+}
+
+// HELPER METHODS
+public static String p(int c, String singular, String plural){
+        String chosen = (c == 1 ? singular : plural);
+        return chosen.contains("%d") ? String.format(chosen, c) : chosen;
+}
+
+public static String lpad(int pad, String s){
+        return String.format("%"+pad+"s", s);
+}
+
+public static String formatLine(Line l, boolean colorize){
+        String s = "";
+        int[] slots = l.getSlots();
+
+        for(int i = 0; i < slots.length; i++) {
+                int n = slots[i];
+                String out = lpad((i == 0 ? 2 : 4), Integer.toString(n));
+                s += ((colorize && l.isHit(i)) ? Colorize.success(out) : out);
+        }
+
+        return "["+s+"]";
 }
 }
