@@ -10,18 +10,8 @@ import java.util.Scanner;
 public class App
 {
 public static void main(String[] args){
-
-        // Deck d = new Deck(6,1,15);//6 number of slots
-        // Deck b = new Deck(6,1,15);
-        // Printer.printLine(b);
-        // Printer.printLine(d);
-        // d.check(b);
-        // Printer.printLine(d);
-        // System.out.println(d.getAmountOfHits());
         History history = play();
         Printer.printHistory(history);
-
-
 }
 
 public static boolean yn(String question, Scanner s){
@@ -46,9 +36,9 @@ public static History play(){
         Scanner s = new Scanner(System.in);
 
         History history = new History();
+        boolean lotteryWon = false;
         Printer.greetings();
         Printer.rules();
-        boolean lotteryWon = false;
 
         do{
                 Game game = new Game();
