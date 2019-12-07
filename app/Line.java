@@ -33,12 +33,6 @@ public boolean isFull(){
 public int[] getSlots(){
         return slots;
 }
-public int getMin(){
-        return min;
-}
-public int getMax(){
-        return max;
-}
 
 public void check(Line other){
         hitsAmount = hitPositions = 0;
