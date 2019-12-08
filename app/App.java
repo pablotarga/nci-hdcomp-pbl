@@ -44,13 +44,14 @@ public static History play(){
 
         History history = new History();
         boolean lotteryWon = false;
+
         Printer.greetings();
         Printer.rules();
 
-        do{
+        while(!lotteryWon && yn(Printer.questionsPlayAGame(history), s)){
                 Game game = new Game();
                 while(game.acceptsNewLine()){
-                        if(!yn("Do you want to play a line?", s)){
+                        if(!game.isFirstLine() && !yn(Printer.questionsAddNewLine(game), s)){
                                 game.noMoreBets();
                                 break;
                         }
@@ -61,13 +62,16 @@ public static History play(){
                         } while(!l.isFull());
 
                         Printer.printLine(l);
-                        if(yn("Is the line entered correct?", s)){
+                        if(yn("Are you happy with these numbers?", s)){
                                 game.addLine(l);
                         }
                 }
-                lotteryWon = game.getWonTheLottery();
-                history.store(game);
-        } while(!lotteryWon && yn("Want to play another game?", s));
+
+                if(game.getAmountOfLinesPlayed() > 0){
+                        lotteryWon = game.getWonTheLottery();
+                        history.store(game);
+                }
+        }
 
         return history;
 }

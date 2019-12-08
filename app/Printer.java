@@ -7,10 +7,12 @@ public static void printHistory(History h){
         Game[] games = h.getGames();
 
         int len = games.length;
-        Game lastGame = games[len-1];
+        if(len > 0){
+                Game lastGame = games[len-1];
 
-        if(lastGame.getWonTheLottery()){
-                printWonTheLottery(lastGame);
+                if(lastGame.getWonTheLottery()){
+                        printWonTheLottery(lastGame);
+                }
         }
 
         printGames(games);
@@ -148,5 +150,21 @@ public static String formatLine(Line l, boolean colorize){
         }
 
         return "["+s+"]";
+}
+
+public static String questionsAddNewLine(Game g){
+        if(g.isFirstLine()){
+                return "Do you want to enter a line of numbers?";
+        } else{
+                return "Do you want to enter another line of numbers?";
+        }
+}
+
+public static String questionsPlayAGame(History h){
+        if(h.isFirstGame()){
+                return "Want to play a lottery game?";
+        } else {
+                return "Want to play another lottery game?";
+        }
 }
 }

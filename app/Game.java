@@ -73,9 +73,11 @@ private void calculateResults(){
 }
 
 public int getAmountOfLinesPlayed(){
-
         return index;
+}
 
+public boolean isFirstLine(){
+        return index == 0;
 }
 
 public int getAmountOfLinesWon(){
