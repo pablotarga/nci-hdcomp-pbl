@@ -15,8 +15,12 @@ public static void main(String[] args){
 }
 
 public static boolean yn(String question, Scanner s){
-        System.out.print(Colorize.warning(question+" [y/n] "));
-        char ans = s.next().trim().toLowerCase().charAt(0);
+        char ans;
+        do {
+                System.out.print(Colorize.warning(question+" [y/n] "));
+                ans = s.next().trim().toLowerCase().charAt(0);
+        } while(ans != 'n' && ans != 'y');
+
         return ans == 'y';
 }
 
