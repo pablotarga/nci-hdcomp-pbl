@@ -12,6 +12,7 @@ public class App{
     // call the method play informing initial balance for the bank, this will return the
     // history object containing all played games and reference to the bank.
     History history = play(600000);
+    // History history = autoplay(); // automatic simulation
 
     //invoke method printHistory from abstract class Printer on variable history
     Printer.printHistory(history);
@@ -77,7 +78,7 @@ public class App{
       // loop that keeps asking for more lines while the game accepts more lines
       while(game.acceptsNewLine()){
         //invites user to play another line, skip on the first line, because we just ask if the user want to play a game
-        if(!game.isFirstLine() && !yn(Printer.questionsAddNewLine(game), s))
+        if(!game.isFirstLine() && !yn(Printer.questionsAddNewLine(game), s)){
           // if user responds negatively we close the game calling noMoreBets, and exit this loop
           game.noMoreBets();
           break;
@@ -107,5 +108,21 @@ public class App{
     }
 
     return history;
+  }
+
+  // automatic generates 100 games with 3 lines each
+  public static History autoplay(){
+    LotteryBank bank = new LotteryBank(600000);
+    History h = new History(bank);
+
+    for(int i = 0; i < 100; i++){
+      Game g = new Game(bank);
+      g.addLine(new Deck());
+      g.addLine(new Deck());
+      g.addLine(new Deck());
+      h.store(g);
+    }
+
+    return h;
   }
 }

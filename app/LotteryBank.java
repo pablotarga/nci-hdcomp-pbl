@@ -1,13 +1,14 @@
 public class LotteryBank {
   public static final double PRICE_PER_LINE = 2.5;
   double balance;
+  double initialBalance;
   double securityMargin;
   int linesCashedIn;
   int prizesPaid;
   double paidSum;
 
   LotteryBank(double initialBalance){
-    balance = initialBalance;
+    balance = this.initialBalance = initialBalance;
 
     securityMargin = balance * 0.05;
     if(securityMargin < 10000){
@@ -30,6 +31,29 @@ public class LotteryBank {
     paidSum += value;
 
     return value;
+  }
+
+  public double getCachedInSum(){
+    return linesCashedIn * PRICE_PER_LINE;
+  }
+  public double getPaidSum(){
+    return paidSum;
+  }
+
+  public int getPrizesPaid(){
+    return prizesPaid;
+  }
+
+  public double getBalance(){
+    return balance;
+  }
+
+  public double getInitialBalance(){
+    return initialBalance;
+  }
+
+  public int getLinesCachedIn(){
+    return linesCashedIn;
   }
 
   public boolean hasBalance(){
