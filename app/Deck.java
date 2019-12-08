@@ -1,6 +1,11 @@
 /**
  * Deck Class
  *
+ * Specialization of Line this class will be auto populated with random numbers respecting
+ * the range and amount of slots provided when class instantiated.
+ *
+ * Perfect use for testing like in App.autoplay() or to withdraw the lottery results inside Game#calculateResults
+ *
  * @author Pablo Targa
  * @version 2019-12-07
  */
@@ -18,6 +23,7 @@ public class Deck extends Line {
     autoPopulate();
   }
 
+  // function that add random numbers from min to max to the slots
   private void autoPopulate(){
     Random r = new Random();
     do {
