@@ -21,12 +21,15 @@ public static boolean yn(String question, Scanner s){
 }
 
 public static void askDigit(Line l, Scanner s){
-        System.out.print("Please inform a digit from 1 to 40: ");
+        int min = l.getMin();
+        int max = l.getMax();
+        System.out.printf("Please inform a digit from %d to %d: ", min, max);
         int n = s.nextInt();
         if(l.add(n)){
                 System.out.println(Colorize.success(n + " was added to the line!"));
         } else {
-                System.out.println(Colorize.error("Informed digit is not valid please check if between 1 and 40 and not included on the line"));
+                String msg = String.format("Informed digit is not valid please check if between %d and %d and not included on the line", min, max);
+                System.out.println(Colorize.error(msg));
                 System.out.print("Line: ");
                 Printer.printLine(l);
         }

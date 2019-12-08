@@ -89,4 +89,12 @@ private boolean isIncluded(int num){
         }
         return false;
 }
+
+public int getMin(){
+        return min;
+}
+public int getMax(){
+        return max;
+}
+
 }
