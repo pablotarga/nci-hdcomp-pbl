@@ -1,6 +1,18 @@
 /**
  * LineClass
  *
+ * This class adds user inputted integers into the slots array
+ * The add() method validates the numbers by checking three things:
+ * 1. that the slots array is not full using the isFull() method,
+ * 2. that the number is within the range 1 to 40 using the isValid() method,
+ * 3. that it is a unique number and has not been chosen already using the isIncluded() method
+ * This class also contains the check() method which compares a line with the secret.
+ * The secret is the actual Lottery winning numbers which gets generated in the Game Class
+ * check() then sets the instance variables hitsAmount and hitPositions
+ * hitPositions stores the actual elements that match as a binary number
+ * this can then be easily compared to one index at a time using the bitwise operator &
+ * The other methods in this class are simply getter methods
+ *
  * @author Shane Gibney assisted by Pablo Targa
  * @version 2019-12-07
  */
@@ -13,7 +25,8 @@ public class Line {
   private int[] slots;
   private int index;
   protected int min, max;
-  private int hitPositions;//int is a primitive numbers, Integer is a reference type, contains a reference to the object instancewhich is a memnory location
+  //int is a primitive numbers, Integer is a reference type, contains a reference to the object instancewhich is a memnory location
+  private int hitPositions;
   private int hitsAmount;
 
   //constructors
