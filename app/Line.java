@@ -1,4 +1,11 @@
-import java.util.Random;
+/**
+ * LineClass
+ *
+ * @author Shane Gibney assisted by Pablo Targa and Donald Hickey
+ * @version 2019-12-07
+ */
+
+
 import java.lang.Math;
 
 public class Line {

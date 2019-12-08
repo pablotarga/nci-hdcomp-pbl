@@ -1,4 +1,10 @@
-public class Colorize{
+/**
+ * Colorize Class 
+ *
+ * @author Pablo Targa assisted by Shane Gibney and Donald Hickey
+ * @version 2019-12-07
+ */
+ public class Colorize{
   public static final String ANSI_RESET = "\u001B[0m";
   public static final String ANSI_BLACK = "\u001B[30m";
   public static final String ANSI_RED = "\u001B[31m";

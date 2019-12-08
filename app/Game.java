@@ -1,3 +1,9 @@
+/**
+ * Game Class
+ *
+ * @author Donald Hickey assisted by Pablo Targa and Donald Hickey
+ * @version 2019-12-07
+ */
 
 import java.util.Random;
 public class Game

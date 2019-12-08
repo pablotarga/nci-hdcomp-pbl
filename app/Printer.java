@@ -1,4 +1,10 @@
-// this is an abstract class and so can never be instantiated to an instance,
+/**
+ * Printer Class
+ *
+ * @author Pablo Targa assisted by Shane Gibney and Donald Hickey
+ * @version 2019-12-07
+ */
+ // this is an abstract class and so can never be instantiated to an instance,
 // in other words an object can never be created
 // but we can and do use the members in the class because they are static
 public abstract class Printer {
