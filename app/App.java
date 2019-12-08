@@ -18,8 +18,12 @@ public static void main(String[] args){
 /* Requests a Yes or No response from user and invokes
 Colorize method from abstract class Colorize to output text in different colors*/
 public static boolean yn(String question, Scanner s){
-        System.out.print(Colorize.warning(question+" [y/n] "));
-        char ans = s.next().trim().toLowerCase().charAt(0);
+        char ans;
+        do {
+                System.out.print(Colorize.warning(question+" [y/n] "));
+                ans = s.next().trim().toLowerCase().charAt(0);
+        } while(ans != 'n' && ans != 'y');
+
         return ans == 'y';
 }
 /* Requests a user to enter a number between 1-40 and handles invalid entries*/
@@ -41,6 +45,7 @@ public static History play(){
         History history = new History();
         //invokes greetings method and rules method from Printer abstract class
         boolean lotteryWon = false;
+
         Printer.greetings();
         Printer.rules();
 

@@ -12,11 +12,15 @@ public class Line {
 //instance variables
 private int[] slots;
 private int index;
-private int min, max;
+protected int min, max;
 private int hitPositions;//int is a primitive numbers, Integer is a reference type, contains a reference to the object instancewhich is a memnory location
 private int hitsAmount;
 
-//constructor
+//constructors
+public Line(){
+        this(Game.NUMBERS, Game.RANGE_MIN, Game.RANGE_MAX);
+}
+
 public Line(int size, int min, int max){
         slots = new int[size];
         index = 0;
@@ -92,4 +96,12 @@ private boolean isIncluded(int num){
         }
         return false;
 }
+
+public int getMin(){
+        return min;
+}
+public int getMax(){
+        return max;
+}
+
 }

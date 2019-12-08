@@ -13,30 +13,27 @@ public static void printHistory(History h){
         Game[] games = h.getGames();
 
         int len = games.length;
-        Game lastGame = games[len-1];
+        if(len > 0){
+                Game lastGame = games[len-1];
 
-        if(lastGame.getWonTheLottery()){
-                printWonTheLottery(lastGame);
+                if(lastGame.getWonTheLottery()){
+                        printWonTheLottery(lastGame);
+                }
         }
 
         printGames(games);
         printHistorySummary(games);
 }
-public static void printLine(Line l){
-        System.out.println(formatLine(l, true));
+
+public static void printLines(Line[] lines){
+        for(int i = 0; i < lines.length; i++){
+                Line curr = lines[i];
+                printLine(curr);
+        }
 }
 
-public static String formatLine(Line l, boolean colorize){
-        String s = "";
-        int[] slots = l.getSlots();
-
-        for(int i = 0; i < slots.length; i++) {
-                int n = slots[i];
-                String out = lpad((i == 0 ? 2 : 4), Integer.toString(n));
-                s += ((colorize && l.isHit(i)) ? Colorize.success(out) : out);
-        }
-
-        return "["+s+"]";
+public static void printLine(Line l){
+        System.out.println(formatLine(l, true));
 }
 
 public static void printGames(Game[] games){
@@ -64,6 +61,8 @@ public static void printGame(Game game, int i){
 
         System.out.println("You have played " + p(pLines, "only one line", "%d lines"));
 
+        printLines(game.getLines());
+
         if(wLines > 0) {
                 System.out.println("... and have winnings in " + p(wLines, "only one line", "%d lines"));
                 System.out.printf("Total winnings for this game is %.2f\n", winnings);
@@ -77,28 +76,28 @@ public static void printHistorySummary(Game[] games){
         //   with the total number of games played
         //   and the average of winnings across all the games
 
-        double sum = 0;
+        double avg, sum = 0.0;
         int len = games.length;
 
-        for(int i = 0; i < len; i++) {
-                sum += games[i].getTotalWinnings();
-        }
+        switch(len){
+                case 0:
+                        avg = sum = 0.0;
+                        break;
+                case 1:
+                        avg = sum = games[0].getTotalWinnings();
+                        break;
+                default:
+                        for(int i = 0; i < len; i++) {
+                                sum += games[i].getTotalWinnings();
+                        }
 
-        double avg = (len == 0 ? 0 : (double)sum/len);
+                        avg = (double)sum/len;
+        }
 
         System.out.println("--== SUMMARY ==--");
         System.out.println("You have played " + p(len, "only one game", "%d games"));
-        System.out.printf("Winnings avg across all games is %.2f", avg);
-}
-
-// HELPER METHODS
-public static String p(int c, String singular, String plural){
-        String chosen = (c == 1 ? singular : plural);
-        return chosen.contains("%d") ? String.format(chosen, c) : chosen;
-}
-
-public static String lpad(int pad, String s){
-        return String.format("%"+pad+"s", s);
+        System.out.printf("Total Winnings is %.2f\n", sum);
+        System.out.printf("Winnings avg across all games is %.2f\n", avg);
 }
 
 public static void greetings(){
@@ -134,5 +133,44 @@ public static void printWonTheLottery(Game game){
         System.out.println("==========================================");
         System.out.println("======== "+Colorize.gold(formatLine(l, false))+" ========");
         System.out.println("==========================================");
+}
+
+// HELPER METHODS
+public static String p(int c, String singular, String plural){
+        String chosen = (c == 1 ? singular : plural);
+        return chosen.contains("%d") ? String.format(chosen, c) : chosen;
+}
+
+public static String lpad(int pad, String s){
+        return String.format("%"+pad+"s", s);
+}
+
+public static String formatLine(Line l, boolean colorize){
+        String s = "";
+        int[] slots = l.getSlots();
+
+        for(int i = 0; i < slots.length; i++) {
+                int n = slots[i];
+                String out = lpad((i == 0 ? 2 : 4), Integer.toString(n));
+                s += ((colorize && l.isHit(i)) ? Colorize.success(out) : out);
+        }
+
+        return "["+s+"]";
+}
+
+public static String questionsAddNewLine(Game g){
+        if(g.isFirstLine()){
+                return "Do you want to enter a line of numbers?";
+        } else{
+                return "Do you want to enter another line of numbers?";
+        }
+}
+
+public static String questionsPlayAGame(History h){
+        if(h.isFirstGame()){
+                return "Want to play a lottery game?";
+        } else {
+                return "Want to play another lottery game?";
+        }
 }
 }

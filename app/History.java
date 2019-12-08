@@ -51,4 +51,12 @@ public class History {
       list[i] = old[i];
     }
   }
+
+  public int amountOfGamesPlayed(){
+    return pos;
+  }
+
+  public boolean isFirstGame(){
+    return pos == 0;
+  }
 }
