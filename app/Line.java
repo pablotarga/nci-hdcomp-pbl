@@ -1,7 +1,7 @@
 /**
  * LineClass
  *
- * This class adds user inputted integers into the slots array
+ * This class adds user inputted integers from teh App class into the slots array.
  * The add() method validates the numbers by checking three things:
  * 1. that the slots array is not full using the isFull() method,
  * 2. that the number is within the range 1 to 40 using the isValid() method,
@@ -12,6 +12,7 @@
  * hitPositions stores the actual elements that match as a binary number
  * this can then be easily compared to one index at a time using the bitwise operator &
  * The other methods in this class are simply getter methods
+ * Note this class is a superclass of Game as it is extended by Line
  *
  * @author Shane Gibney assisted by Pablo Targa
  * @version 2019-12-07
