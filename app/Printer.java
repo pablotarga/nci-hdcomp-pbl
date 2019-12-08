@@ -68,17 +68,27 @@ public static void printHistorySummary(Game[] games){
         //   with the total number of games played
         //   and the average of winnings across all the games
 
-        double sum = 0;
+        double avg, sum = 0.0;
         int len = games.length;
 
-        for(int i = 0; i < len; i++) {
-                sum += games[i].getTotalWinnings();
-        }
+        switch(len){
+                case 0:
+                        avg = sum = 0.0;
+                        break;
+                case 1:
+                        avg = sum = games[0].getTotalWinnings();
+                        break;
+                default:
+                        for(int i = 0; i < len; i++) {
+                                sum += games[i].getTotalWinnings();
+                        }
 
-        double avg = (len == 0 ? 0 : (double)sum/len);
+                        avg = (double)sum/len;
+        }
 
         System.out.println("--== SUMMARY ==--");
         System.out.println("You have played " + p(len, "only one game", "%d games"));
+        System.out.printf("Total Winnings is %.2f\n", sum);
         System.out.printf("Winnings avg across all games is %.2f\n", avg);
 }
 
