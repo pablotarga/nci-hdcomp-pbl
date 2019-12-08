@@ -1,7 +1,7 @@
 /**
  * Deck Class
  *
- * @author Pablo Targa assisted by Shane Gibney and Donald Hickey
+ * @author Pablo Targa
  * @version 2019-12-07
  */
 import java.util.Random;

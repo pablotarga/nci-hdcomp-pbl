@@ -14,7 +14,7 @@ public class App{
     History history = play(600000);
     // History history = autoplay(); // automatic simulation
 
-    //invoke method printHistory from abstract class Printer on variable history
+    // invoke method printHistory from abstract class Printer on variable history
     Printer.printHistory(history);
   }
 
@@ -115,12 +115,15 @@ public class App{
     LotteryBank bank = new LotteryBank(600000);
     History h = new History(bank);
 
-    for(int i = 0; i < 100; i++){
+    for(int i = 0; i < 10; i++){
       Game g = new Game(bank);
       g.addLine(new Deck());
       g.addLine(new Deck());
       g.addLine(new Deck());
       h.store(g);
+      if(g.getWonTheLottery()){
+        break;
+      }
     }
 
     return h;
