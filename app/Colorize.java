@@ -47,7 +47,7 @@ public static String gold(String string){
 }
 
 public static String rainbow(String string){
-        String[] colors = {ANSI_RED, ANSI_GREEN, ANSI_YELLOW, ANSI_BLUE, ANSI_PURPLE, ANSI_CYAN};
+        String[] colors = {ANSI_RED, ANSI_YELLOW, ANSI_GREEN, ANSI_CYAN, ANSI_BLUE, ANSI_PURPLE};
         int cLen = colors.length;
 
         StringBuffer sb = new StringBuffer();

@@ -1,7 +1,7 @@
 /**
  * LineClass
  *
- * @author Shane Gibney assisted by Pablo Targa and Donald Hickey
+ * @author Shane Gibney assisted by Pablo Targa
  * @version 2019-12-07
  */
 

@@ -12,6 +12,8 @@ public abstract class Printer {
 public static void printHistory(History h){
         Game[] games = h.getGames();
 
+        printGames(games);
+
         int len = games.length;
         if(len > 0) {
                 Game lastGame = games[len-1];
@@ -21,7 +23,6 @@ public static void printHistory(History h){
                 }
         }
 
-        printGames(games);
         printHistorySummary(games);
         printBankSummary(h.getBank());
 }
@@ -115,7 +116,7 @@ public static void greetings(){
 }
 
 public static void rules(){
-        System.out.println(Colorize.info("======== Lotery Rules ========="));
+        System.out.println(Colorize.info("======== Lottery Rules ========="));
         System.out.println(Colorize.info("Play as many times you like!"));
         System.out.println(Colorize.info("You can play up to 3 lines per game."));
         System.out.println(Colorize.info("You can pick any digit from 1 to 40."));
