@@ -48,7 +48,7 @@ public static History play(){
                                 break;
                         }
 
-                        Line l = new Line(6, 1, 40);
+                        Line l = new Line();
                         do{
                                 askDigit(l, s);
                         } while(!l.isFull());

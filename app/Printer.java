@@ -17,6 +17,13 @@ public static void printHistory(History h){
         printHistorySummary(games);
 }
 
+public static void printLines(Line[] lines){
+        for(int i = 0; i < lines.length; i++){
+                Line curr = lines[i];
+                printLine(curr);
+        }
+}
+
 public static void printLine(Line l){
         System.out.println(formatLine(l, true));
 }
@@ -45,6 +52,8 @@ public static void printGame(Game game, int i){
         }
 
         System.out.println("You have played " + p(pLines, "only one line", "%d lines"));
+
+        printLines(game.getLines());
 
         if(wLines > 0) {
                 System.out.println("... and have winnings in " + p(wLines, "only one line", "%d lines"));

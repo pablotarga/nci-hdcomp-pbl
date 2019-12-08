@@ -2,6 +2,10 @@
 import java.util.Random;
 public class Game
 {
+public static final int NUMBERS = 6;
+public static final int RANGE_MIN = 1;
+public static final int RANGE_MAX = 8;
+
 private Deck secret;
 private Line[] lines;
 private boolean locked;
@@ -35,7 +39,7 @@ public void noMoreBets(){
 }
 
 private void calculateResults(){
-        secret = new Deck(6,1,40);
+        secret = new Deck(NUMBERS, RANGE_MIN, RANGE_MAX);
         amountOfLinesWon = 0;
         totalWinnings = 0.0;
 
@@ -98,5 +102,16 @@ public Line getLotteryWinnerLine(){
                 }
         }
         return null;
+}
+
+// copy and return played lines;
+public Line[] getLines(){
+        Line[] l = new Line[index];
+
+        for(int i = 0; i < l.length; i++){
+                l[i] = lines[i];
+        }
+
+        return l;
 }
 }
