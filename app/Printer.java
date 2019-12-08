@@ -79,7 +79,7 @@ public static void printHistorySummary(Game[] games){
 
         System.out.println("--== SUMMARY ==--");
         System.out.println("You have played " + p(len, "only one game", "%d games"));
-        System.out.printf("Winnings avg across all games is %.2f", avg);
+        System.out.printf("Winnings avg across all games is %.2f\n", avg);
 }
 
 public static void greetings(){
