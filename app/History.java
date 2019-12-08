@@ -7,8 +7,10 @@
 public class History {
   private Game[] list;
   private int pos;
+  private LotteryBank bank;
 
-  public History(){
+  public History(LotteryBank bank){
+    this.bank = bank;
     list = new Game[10]; // start with 10 positions
     pos = 0;
   }
@@ -34,6 +36,10 @@ public class History {
       games[i] = list[i];
     }
     return games;
+  }
+
+  public LotteryBank getBank(){
+    return bank;
   }
 
   private void extendList(){
